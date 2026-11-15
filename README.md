@@ -24,7 +24,8 @@ The central product question is:
 - Initial mathematics curriculum mapped
 - Two-week starter plan drafted
 - Longer-term learning roadmap drafted
-- Practice, revision, and progress systems planned
-- No application code or hosted site yet
+- Interactive reading-and-practice prototype built
+- Time-shaped sessions for 15, 30, 45, or 60 minutes
+- Practice, confidence, reflection, and mistake records saved locally
 
-The next step is to review the plan, adjust it to the learner's current level and routine, and then build the first usable version.
+Open `dist/index.html` to try the local prototype.

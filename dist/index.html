@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A quiet, reading-first mathematics study desk.">
+    <meta name="theme-color" content="#f3f0e4">
+    <title>Mathing — your mathematics study desk</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to study content</a>
+
+    <header class="topbar">
+      <button class="wordmark" type="button" data-view-button="today" aria-label="Mathing home">
+        <span aria-hidden="true">∴</span>
+        Mathing
+      </button>
+      <p class="topbar-note">A quiet place to understand one thing at a time.</p>
+      <div class="save-state" id="save-state" role="status" aria-live="polite">
+        <span aria-hidden="true"></span>
+        Saved on this device
+      </div>
+    </header>
+
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <nav class="main-nav">
+          <button class="nav-item is-active" type="button" data-view-button="today" aria-current="page">
+            <span class="nav-mark" aria-hidden="true">⌂</span>
+            Today
+          </button>
+          <button class="nav-item" type="button" data-view-button="topics">
+            <span class="nav-mark" aria-hidden="true">⌘</span>
+            Topic paths
+          </button>
+          <button class="nav-item" type="button" data-view-button="memory">
+            <span class="nav-mark" aria-hidden="true">↺</span>
+            Memory
+            <span class="nav-count" id="mistake-count">0</span>
+          </button>
+        </nav>
+
+        <section class="sidebar-progress" aria-labelledby="week-heading">
+          <h2 id="week-heading">This week</h2>
+          <div class="week-dots" id="week-dots" aria-label="Weekly study activity"></div>
+          <p><strong id="week-minutes">0 min</strong> of thoughtful practice</p>
+        </section>
+
+        <p class="sidebar-foot">No streaks to protect.<br>Return when you can think.</p>
+      </aside>
+
+      <main id="main" tabindex="-1">
+        <section class="view is-active" id="today-view" data-view="today" aria-labelledby="today-title">
+          <div class="session-header">
+            <div>
+              <p class="plain-label" id="today-date"></p>
+              <h1 id="today-title">Make one idea clearer.</h1>
+              <p class="lede">Choose your available time. Mathing will keep the session inside it.</p>
+            </div>
+            <fieldset class="time-picker">
+              <legend>I have</legend>
+              <div class="segmented-control" id="time-options">
+                <button type="button" data-minutes="15">15 min</button>
+                <button class="is-selected" type="button" data-minutes="30">30 min</button>
+                <button type="button" data-minutes="45">45 min</button>
+                <button type="button" data-minutes="60">60 min</button>
+              </div>
+            </fieldset>
+          </div>
+
+          <section class="session-brief" aria-labelledby="session-title">
+            <div class="brief-copy">
+              <p class="plain-label">Suggested next</p>
+              <h2 id="session-title">Conditional probability</h2>
+              <p id="session-reason">This idea connects simple probability to Bayes' rule and random variables.</p>
+            </div>
+            <div class="session-allocation" id="session-allocation" aria-label="Session time allocation"></div>
+            <button class="primary-button" id="begin-session" type="button">Begin the session</button>
+          </section>
+
+          <div class="study-layout" id="study-layout">
+            <nav class="step-rail" aria-label="Session steps">
+              <button class="step-button is-active" type="button" data-step="read" aria-current="step">
+                <span>1</span>
+                <span><strong>Read</strong><small id="read-time">6 min</small></span>
+                <i aria-hidden="true"></i>
+              </button>
+              <button class="step-button" type="button" data-step="predict">
+                <span>2</span>
+                <span><strong>Predict</strong><small id="predict-time">3 min</small></span>
+                <i aria-hidden="true"></i>
+              </button>
+              <button class="step-button" type="button" data-step="practice">
+                <span>3</span>
+                <span><strong>Practice</strong><small id="practice-time">17 min</small></span>
+                <i aria-hidden="true"></i>
+              </button>
+              <button class="step-button" type="button" data-step="reflect">
+                <span>4</span>
+                <span><strong>Reflect</strong><small id="reflect-time">4 min</small></span>
+                <i aria-hidden="true"></i>
+              </button>
+            </nav>
+
+            <article class="paper" aria-live="polite">
+              <div class="paper-rule" aria-hidden="true"></div>
+
+              <section class="study-step is-active" data-step-panel="read">
+                <div class="reading-head">
+                  <div>
+                    <p class="chapter-mark">Probability · idea 3 of 12</p>
+                    <h2>What changes when you already know something?</h2>
+                  </div>
+                  <button class="quiet-button" id="mark-unclear" type="button">Mark unclear</button>
+                </div>
+
+                <p class="opening-paragraph">Probability usually begins with all possible outcomes. New information can shrink that world. Conditional probability measures chance inside this smaller world.</p>
+
+                <aside class="margin-note">
+                  <span>In plain words</span>
+                  <p>Ignore outcomes that contradict what you now know. Recalculate using what remains.</p>
+                </aside>
+
+                <h3>Start with a small world</h3>
+                <p>A box contains 10 cards. Six are blue. Four are red. Three of the blue cards and one of the red cards have a star.</p>
+
+                <div class="card-grid-example" aria-label="Ten cards: three blue stars, three plain blue cards, one red star, and three plain red cards">
+                  <span class="blue starred">★</span><span class="blue starred">★</span><span class="blue starred">★</span>
+                  <span class="blue"></span><span class="blue"></span><span class="blue"></span>
+                  <span class="red starred">★</span><span class="red"></span><span class="red"></span><span class="red"></span>
+                </div>
+
+                <p>Without any extra information, the chance of drawing a star is <span class="math">4/10</span>.</p>
+                <p>Now suppose you are told that the card is blue. The four red cards no longer belong to the possible world. Among the six blue cards, three have stars.</p>
+
+                <div class="equation-block" aria-label="Probability of star given blue equals three sixths, which equals one half">
+                  <span>P(star | blue)</span>
+                  <span>=</span>
+                  <span>3 / 6</span>
+                  <span>=</span>
+                  <strong>1 / 2</strong>
+                </div>
+
+                <p>The vertical bar means “given that.” Formally:</p>
+                <div class="definition-block">
+                  <span class="definition-label">Definition</span>
+                  <p>P(A | B) = P(A ∩ B) / P(B), when P(B) &gt; 0.</p>
+                </div>
+
+                <details class="why-box">
+                  <summary>Why do we divide by P(B)?</summary>
+                  <p>Once B is known, B becomes the whole possible world. Dividing by P(B) rescales that smaller world so its total probability becomes 1.</p>
+                </details>
+
+                <div class="reading-check">
+                  <p>Before moving on, say this in your own words:</p>
+                  <blockquote>What does the condition change—the event, or the world in which we measure it?</blockquote>
+                </div>
+
+                <div class="paper-actions">
+                  <button class="secondary-button" id="need-example" type="button">Show another example</button>
+                  <button class="primary-button" type="button" data-next-step="predict">I’m ready to predict</button>
+                </div>
+              </section>
+
+              <section class="study-step" data-step-panel="predict" hidden>
+                <p class="chapter-mark">Pause before calculating</p>
+                <h2>Which world should you count inside?</h2>
+                <p class="opening-paragraph">A group has 20 people. Twelve drink tea, eight drink coffee, and five drink both. One person is chosen from those who drink tea.</p>
+                <fieldset class="prediction-card">
+                  <legend>Before doing any arithmetic: what is the denominator for the probability that this person also drinks coffee?</legend>
+                  <label><input type="radio" name="prediction" value="20"><span>20 — everyone in the group</span></label>
+                  <label><input type="radio" name="prediction" value="12"><span>12 — the people who drink tea</span></label>
+                  <label><input type="radio" name="prediction" value="8"><span>8 — the people who drink coffee</span></label>
+                  <label><input type="radio" name="prediction" value="5"><span>5 — the people who drink both</span></label>
+                </fieldset>
+                <div class="feedback" id="prediction-feedback" role="status" aria-live="polite"></div>
+                <div class="paper-actions">
+                  <button class="secondary-button" type="button" data-previous-step="read">Back to the note</button>
+                  <button class="primary-button" id="check-prediction" type="button">Check my prediction</button>
+                </div>
+              </section>
+
+              <section class="study-step" data-step-panel="practice" hidden>
+                <div class="practice-heading">
+                  <div>
+                    <p class="chapter-mark">Practice · <span id="problem-number">1</span> of <span id="problem-total">3</span></p>
+                    <h2 id="problem-title">Choose the smaller world</h2>
+                  </div>
+                  <span class="difficulty" id="problem-difficulty">Direct application</span>
+                </div>
+
+                <p class="problem-text" id="problem-text"></p>
+                <div class="answer-row">
+                  <label for="answer-input">Your answer</label>
+                  <input id="answer-input" inputmode="decimal" autocomplete="off" placeholder="e.g. 1/2 or 0.5">
+                </div>
+
+                <fieldset class="confidence-picker">
+                  <legend>How sure are you?</legend>
+                  <label><input type="radio" name="confidence" value="low"><span>Not sure</span></label>
+                  <label><input type="radio" name="confidence" value="medium"><span>Fairly sure</span></label>
+                  <label><input type="radio" name="confidence" value="high"><span>Very sure</span></label>
+                </fieldset>
+
+                <div class="hint-area" id="hint-area" hidden></div>
+                <div class="feedback" id="answer-feedback" role="status" aria-live="polite"></div>
+                <div class="solution-area" id="solution-area" hidden></div>
+
+                <div class="paper-actions practice-actions">
+                  <button class="quiet-button" id="show-hint" type="button">Give me one hint</button>
+                  <button class="secondary-button" id="show-solution" type="button">Show worked solution</button>
+                  <button class="primary-button" id="check-answer" type="button">Check answer</button>
+                  <button class="primary-button" id="next-problem" type="button" hidden>Next problem</button>
+                </div>
+              </section>
+
+              <section class="study-step" data-step-panel="reflect" hidden>
+                <p class="chapter-mark">Close the loop</p>
+                <h2>Leave a note for your future self.</h2>
+                <p class="opening-paragraph">A short explanation makes the idea easier to retrieve later. It also tells Mathing what kind of review will help.</p>
+
+                <label class="reflection-field" for="reflection-input">
+                  <span>Conditional probability means…</span>
+                  <textarea id="reflection-input" rows="5" placeholder="Explain it without copying the formula."></textarea>
+                </label>
+
+                <fieldset class="clarity-picker">
+                  <legend>Where is this idea now?</legend>
+                  <label><input type="radio" name="clarity" value="foggy"><span>Still foggy</span></label>
+                  <label><input type="radio" name="clarity" value="forming"><span>Starting to form</span></label>
+                  <label><input type="radio" name="clarity" value="clear"><span>Clear enough to use</span></label>
+                </fieldset>
+
+                <div class="completion-card" id="completion-card" hidden>
+                  <span aria-hidden="true">✓</span>
+                  <div>
+                    <strong>Session saved</strong>
+                    <p>Your next short review is scheduled for tomorrow.</p>
+                  </div>
+                </div>
+
+                <div class="paper-actions">
+                  <button class="secondary-button" type="button" data-previous-step="practice">Return to practice</button>
+                  <button class="primary-button" id="complete-session" type="button">Complete session</button>
+                </div>
+              </section>
+            </article>
+
+            <aside class="study-margin" aria-label="Session notes">
+              <section>
+                <h2>Session note</h2>
+                <p id="margin-message">Read slowly enough to notice when the possible world changes.</p>
+              </section>
+              <section class="scratch-section">
+                <label for="scratchpad">Scratchpad</label>
+                <textarea id="scratchpad" rows="7" placeholder="Write a thought, equation, or doubt…"></textarea>
+                <small>Saved automatically</small>
+              </section>
+              <button class="doubt-button" id="save-doubt" type="button">Save this as a doubt</button>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" id="topics-view" data-view="topics" aria-labelledby="topics-title" hidden>
+          <div class="library-head">
+            <div>
+              <p class="plain-label">Your learning path</p>
+              <h1 id="topics-title">A connected map, not a checklist.</h1>
+              <p class="lede">Choose a path. Mathing will insert a short foundation bridge when something underneath needs attention.</p>
+            </div>
+            <div class="legend" aria-label="Topic status legend">
+              <span><i class="not-started"></i>Not started</span>
+              <span><i class="learning"></i>Learning</span>
+              <span><i class="retained"></i>Retained</span>
+            </div>
+          </div>
+          <div class="topic-paths" id="topic-paths"></div>
+        </section>
+
+        <section class="view" id="memory-view" data-view="memory" aria-labelledby="memory-title" hidden>
+          <div class="memory-head">
+            <div>
+              <p class="plain-label">Your memory</p>
+              <h1 id="memory-title">Return to the exact place understanding broke.</h1>
+              <p class="lede">Mistakes and doubts become future practice. Nothing here is a punishment.</p>
+            </div>
+            <button class="secondary-button" id="clear-memory" type="button">Clear resolved items</button>
+          </div>
+          <div class="memory-layout">
+            <section aria-labelledby="due-title">
+              <h2 id="due-title">Due for repair</h2>
+              <div class="memory-list" id="memory-list"></div>
+            </section>
+            <aside class="memory-summary">
+              <p class="plain-label">Pattern noticed</p>
+              <h2 id="memory-pattern">No pattern yet</h2>
+              <p id="memory-pattern-copy">Complete practice or save a doubt. Mathing will group related friction here.</p>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>
