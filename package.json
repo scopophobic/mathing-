@@ -1,0 +1,38 @@
+{
+  "name": "mathing",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit --incremental false",
+    "test": "vitest run",
+    "content:validate": "tsx scripts/validate-content.ts"
+  },
+  "dependencies": {
+    "@cortex-js/compute-engine": "0.170.0",
+    "@supabase/ssr": "latest",
+    "@supabase/supabase-js": "latest",
+    "gray-matter": "latest",
+    "katex": "0.18.2",
+    "next": "latest",
+    "next-mdx-remote": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "rehype-katex": "latest",
+    "remark-math": "latest",
+    "server-only": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/katex": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "tsx": "latest",
+    "typescript": "latest",
+    "vitest": "4.1.12"
+  },
+  "overrides": { "katex": "0.18.2" }
+}

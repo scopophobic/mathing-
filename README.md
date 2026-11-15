@@ -1,31 +1,69 @@
 # Mathing
 
-A personal platform for learning mathematics through clear plans, focused practice, reflection, and revision.
+Mathing is a private, reading-first mathematics study desk for people with limited time. It turns available time and learning evidence into one explainable next session:
 
-The first learning path covers:
+**Recall → read → predict → solve → explain → schedule**
 
-- Mathematical foundations
-- Probability and statistics
-- Linear algebra
-- Calculus and optimization
+The application is independent of any AI product. It does not require a language model or model API.
 
-The central product question is:
+## What is implemented
 
-> What should I study next, why should I study it, and what evidence will show that I understand it?
+- Next.js App Router and TypeScript
+- Google sign-in through Supabase Auth
+- Invite-only access and an owner-only invite screen
+- Supabase PostgreSQL schema with row-level security
+- 15, 30, 45, and 60 minute session plans
+- Deterministic recommendations, review intervals, and mastery rules
+- Server-only answer keys and structured grading policies
+- Git-versioned MDX lessons with source and licence metadata
+- KaTeX mathematics rendering
+- Starting-level onboarding and a skippable diagnostic
+- Topic map, guided practice desk, review queue, mistakes, and doubts
+- An enforced beta quality threshold
 
-## Documents
+The curriculum map contains 85 micro-lessons. One complete lesson and four reviewed questions are currently published. Beta invitations remain locked until at least 80 reviewed lessons and 900 reviewed questions pass validation.
 
-- [Product plan](docs/PRODUCT_PLAN.md)
-- [Learning roadmap](docs/LEARNING_ROADMAP.md)
-- [Goals and principles](docs/GOALS.md)
+## Run locally
 
-## Current status
+```sh
+npm install
+cp .env.example .env.local
+npm run dev
+```
 
-- Initial mathematics curriculum mapped
-- Two-week starter plan drafted
-- Longer-term learning roadmap drafted
-- Interactive reading-and-practice prototype built
-- Time-shaped sessions for 15, 30, 45, or 60 minutes
-- Practice, confidence, reflection, and mistake records saved locally
+Set `NEXT_PUBLIC_DEMO_MODE=true` only for local interface work. Do not set it in Vercel.
 
-Open `dist/index.html` to try the local prototype.
+```sh
+npm run typecheck
+npm test
+npm run content:validate
+npm run build
+```
+
+## Configure the independent service
+
+1. Create a Supabase project.
+2. Apply `supabase/migrations/202611150001_initial.sql`.
+3. In Google Cloud, create a web OAuth client and add Supabase’s callback URL.
+4. Enable Google in Supabase Authentication using that client ID and secret.
+5. Add the application URL and `/auth/callback` to Supabase’s allowed redirects.
+6. Create a Vercel project from this repository and add the variables in `.env.example`.
+7. Put the owner’s normalized Google email in `BOOTSTRAP_ADMIN_EMAILS`.
+8. Deploy a preview, test owner sign-in, and verify data isolation before promoting `main`.
+
+Secrets belong in Supabase and Vercel settings, never in this repository.
+
+## Repository guide
+
+- `app/` — routes, server actions, and interface
+- `components/` — interactive study surfaces
+- `content/lessons/` — reviewed MDX learning notes
+- `lib/content/` — schemas, curriculum map, and server-only questions
+- `lib/learning/` — session, review, mastery, and answer logic
+- `supabase/migrations/` — database and security policies
+- `docs/` — product, system, content, and release guidance
+- `dist/` and `.openai/` — previous prototype, retained only until independent production cutover
+
+## Safe cutover
+
+Keep the previous hosted prototype online until Google sign-in and an invited account both pass on the Vercel production build. Then remove `dist/` and `.openai/hosting.json`, archive the old deployment, and commit the cleanup separately.

@@ -62,7 +62,7 @@ The sequence is flexible. Foundation topics appear whenever they unlock a later 
 
 ## Two-week starter plan
 
-Use weekdays only; weekends are optional catch-up or rest. The default is 90 minutes, adjustable using the session structure in the product plan.
+Use weekdays only; weekends are optional catch-up or rest. The default is 30 minutes, adjustable using the session structure in the product plan. A second session is optional on longer study days.
 
 | Day | Focus | Evidence to record |
 | --- | --- | --- |

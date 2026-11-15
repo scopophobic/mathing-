@@ -1,8 +1,13 @@
-.DS_Store
 node_modules/
+.next/
+.vercel/
 .env
-.env.*
+.env.local
+.env.*.local
 coverage/
+*.tsbuildinfo
+.DS_Store
+AGENTS.md
 
 # Personal study records and exports must stay local.
 data/private/

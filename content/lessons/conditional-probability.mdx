@@ -1,0 +1,62 @@
+---
+id: conditional-probability
+title: Conditional probability
+summary: Recalculate chance inside the smaller world created by new information.
+path: probability
+order: 3
+prerequisites:
+  - sample-spaces-and-events
+  - probability-rules
+estimatedMinutes: 12
+outcomes:
+  - Identify the sample space created by a condition.
+  - Compute conditional probability from counts and event probabilities.
+  - Explain why the denominator changes.
+contentVersion: 1
+sources:
+  - title: Introductory Statistics, section 3.1
+    url: https://openstax.org/books/introductory-statistics/pages/3-1-terminology
+    licence: CC BY 4.0
+misconceptionTags:
+  - uses-original-denominator
+  - confuses-independent-and-exclusive
+published: true
+---
+
+# What changes when you already know something?
+
+Probability begins with a world of possible outcomes. New information can make some of those outcomes impossible. **Conditional probability is ordinary probability measured inside the smaller world that remains.**
+
+## Start with a small world
+
+A box contains ten cards. Six are blue and four are red. Three blue cards and one red card have a star. Before learning anything else, four of the ten cards have a star, so the chance of a star is $4/10$.
+
+Now you are told the card is blue. The four red cards no longer belong to the possible world. Of the six possible blue cards, three have stars:
+
+$$P(\text{star}\mid\text{blue})=\frac{3}{6}=\frac12.$$
+
+The vertical bar means “given that.” The event after the bar tells you which world to count inside.
+
+## The definition
+
+For events $A$ and $B$, when $P(B)>0$,
+
+$$P(A\mid B)=\frac{P(A\cap B)}{P(B)}.$$
+
+The intersection $A\cap B$ is the part of the smaller world $B$ that also satisfies $A$. Dividing by $P(B)$ rescales that smaller world so its total probability is one.
+
+## Worked example
+
+Twenty people include twelve tea drinkers and five people who drink both tea and coffee. If someone is selected from the tea drinkers, the possible world contains twelve people. Five are also coffee drinkers, so
+
+$$P(\text{coffee}\mid\text{tea})=\frac{5}{12}.$$
+
+## A faded example
+
+A fair die result is known to be greater than three. The remaining outcomes are $\{4,5,6\}$. The even outcomes among them are $\{4,6\}$. Therefore the conditional probability is $\_\_/\_\_$.
+
+Before revealing the answer, name the denominator and say why it is no longer six.
+
+## Explain it back
+
+What does the condition change: the event you care about, or the world in which you measure it? Write one sentence before starting practice.

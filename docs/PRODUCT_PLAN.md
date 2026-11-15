@@ -4,7 +4,7 @@ Working title: **Mathing**.
 
 ## Product idea
 
-Mathing is a personal training desk for mathematics. On opening it, the learner selects a time budget—60, 90, or 120 minutes—and receives one achievable session with a clear reason. A recommendation might say:
+Mathing is a personal training desk for mathematics. On opening it, the learner selects a time budget—15, 30, 45, or 60 minutes—and receives one achievable session with a clear reason. A recommendation might say:
 
 > You confused independent and mutually exclusive events twice. Repair that idea before continuing conditional probability.
 
@@ -50,11 +50,12 @@ The learner occasionally explains a concept in plain language or writes why a me
 
 ## Daily session design
 
-| Available time | Recall/review | Learn | Solve | Record and plan |
+| Available time | Recall | Read | Practice | Reflect |
 | --- | ---: | ---: | ---: | ---: |
-| 60 minutes | 10 | 15 | 25 | 10 |
-| 90 minutes | 15 | 20 | 40 | 15 |
-| 120 minutes | 15 | 30 | 55 | 20 |
+| 15 minutes | 2 | 4 | 7 | 2 |
+| 30 minutes | 4 | 6 | 16 | 4 |
+| 45 minutes | 6 | 9 | 23 | 7 |
+| 60 minutes | 8 | 12 | 31 | 9 |
 
 The first target is 4–8 carefully reviewed questions per session. Difficult problems may reduce that number. The system will never silently move all missed work onto the next day.
 
@@ -104,9 +105,9 @@ Mistake categories:
 
 Each mistake stores the topic, source problem, attempted reasoning, correction, next action, status, and review date. Doubts have open, investigating, and resolved states. Closing a doubt does not automatically mark a topic retained.
 
-## Technical direction for the first build
+## Technical direction
 
-Start with a small browser-local application using HTML, CSS, and JavaScript. Store the curriculum and original starter questions as versioned data. Store personal progress locally with JSON export/import and backup reminders.
+The independent application uses Next.js and TypeScript on Vercel, Supabase Google authentication and PostgreSQL, and Git-versioned MDX content. Personal learning evidence is account-bound and protected with row-level security. The core product uses deterministic rules and requires no model API.
 
 Core records:
 
@@ -142,7 +143,7 @@ Maths visualizations, richer learning notes, and optional cross-device synchroni
 ## Acceptance checks for milestone 1
 
 - Every learning topic belongs to the curriculum or is clearly marked as foundation support.
-- A 60, 90, or 120 minute choice produces a session within that budget.
+- A 15, 30, 45, or 60 minute choice produces a session within that budget.
 - A completed session and logged attempt survive a page reload.
 - A wrong attempt can create a linked mistake and scheduled repair.
 - Completing a lesson does not automatically mark a topic retained.

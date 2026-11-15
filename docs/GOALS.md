@@ -2,7 +2,7 @@
 
 ## Primary goal
 
-Build a personal maths learning system that develops durable understanding. It should make a 60–120 minute weekday session easy to start, useful to complete, and honest about what has or has not been learned.
+Build a personal maths learning system that develops durable understanding. It should make a 15–60 minute focused session easy to start, useful to complete, and honest about what has or has not been learned. A learner with more time can run a second session.
 
 ## What success looks like
 
@@ -20,7 +20,7 @@ Build a personal maths learning system that develops durable understanding. It s
 2. **Evidence over checkboxes.** Completing a lesson is activity. Solving a fresh question independently is evidence.
 3. **Mistakes are curriculum.** Every meaningful error can become a repair card and a scheduled revisit.
 4. **Recommendations must be explainable.** The learner should see why a topic is suggested and may override it.
-5. **Capacity is real.** Daily plans must fit the selected 60, 90, or 120 minute budget.
+5. **Capacity is real.** Daily plans must fit the selected 15, 30, 45, or 60 minute budget.
 6. **Foundations stay connected.** Supporting algebra or reasoning is introduced when it unlocks the current learning path.
 7. **No punitive streaks.** Missed days are rescheduled without shame or silent overload.
 8. **The learner owns the data.** Export and import should be available from the first useful release.
