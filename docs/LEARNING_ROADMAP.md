@@ -94,6 +94,28 @@ This sequence includes the starter fortnight. At 5–10 hours per week, it repre
 
 Reserve 15–25% of every week for earlier topics. The learner may reorder blocks or split them when a prerequisite needs attention.
 
+## Focused dependency sequence
+
+The detailed research separates broad labels into smaller learning clusters. Use this order when the diagnostic does not identify a more urgent bridge:
+
+1. Counting, event operations, and probability rules
+2. Joint, marginal, and conditional probability
+3. Independence and Bayes reasoning
+4. Random variables, PMF, PDF, and CDF
+5. Expectation, variance, conditional moments, covariance, and correlation
+6. Discrete and continuous distribution families
+7. Sampling distributions and central limit reasoning
+8. Confidence intervals and test logic
+9. Z, t, and chi-squared procedures
+10. Matrices, linear systems, elimination, and LU
+11. Vector spaces, independence, basis, rank, and nullity
+12. Special matrices, determinants, and eigenstructure
+13. Projections, quadratic forms, and singular values
+14. Functions, limits, continuity, and differentiability
+15. Taylor approximation, extrema, and single-variable optimisation
+
+This is a dependency order, not a rigid calendar. Delayed reviews and mistake repairs remain interleaved throughout.
+
 ## Longer-term direction
 
 After the first pass, repeat a cycle of mixed practice, weak-area repair, and timed problem sets. The platform should generate each cycle from evidence instead of imposing the same calendar on every learner.
