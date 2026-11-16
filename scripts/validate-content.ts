@@ -19,6 +19,6 @@ for (const lesson of curriculum) for (const prerequisite of lesson.prerequisites
 
 const published = curriculum.filter((lesson) => lesson.published).length;
 console.log(`Content valid: ${curriculum.length} mapped lessons, ${published} published lessons, ${questions.length} reviewed questions.`);
-if (process.env.BETA_READY === "true" && (published < 80 || questions.length < 900)) {
-  throw new Error("Private beta cannot open until at least 80 lessons and 900 reviewed questions pass validation.");
+if (process.env.BETA_READY === "true" && (published < curriculum.length || questions.length < 900)) {
+  throw new Error(`Private beta cannot open until all ${curriculum.length} mapped lessons and 900 reviewed questions pass validation.`);
 }

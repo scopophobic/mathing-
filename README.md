@@ -21,7 +21,7 @@ The application is independent of any AI product. It does not require a language
 - Topic map, guided practice desk, review queue, mistakes, and doubts
 - An enforced beta quality threshold
 
-The curriculum map contains 85 micro-lessons. One complete lesson and four reviewed questions are currently published. Beta invitations remain locked until at least 80 reviewed lessons and 900 reviewed questions pass validation.
+The curriculum map contains 110 micro-lessons. One complete lesson and four reviewed questions are currently published. Beta invitations remain locked until every mapped lesson and at least 900 reviewed questions pass validation.
 
 ## Run locally
 
@@ -67,3 +67,5 @@ Secrets belong in Supabase and Vercel settings, never in this repository.
 ## Safe cutover
 
 Keep the previous hosted prototype online until Google sign-in and an invited account both pass on the Vercel production build. Then remove `dist/` and `.openai/hosting.json`, archive the old deployment, and commit the cleanup separately.
+
+The focused mathematics scope and question-building priorities are documented in `docs/MATHEMATICS_SCOPE_RESEARCH.md`.

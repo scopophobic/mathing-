@@ -54,7 +54,7 @@ export async function saveOnboarding(formData: FormData) {
 }
 
 function betaReady() {
-  return curriculum.filter((lesson) => lesson.published).length >= 80 && questions.length >= 900;
+  return curriculum.every((lesson) => lesson.published) && questions.length >= 900;
 }
 
 export async function inviteLearner(formData: FormData) {
